@@ -1,11 +1,15 @@
-import { SignedIn,SignedOut,SignInButton,SignOutButton } from '@clerk/nextjs'
+import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
+
+
 import React from 'react'
 import { Navbar } from "@/components/ui/navbar"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, BookOpen, MessageSquare, Shield, Users } from "lucide-react"
 
-const HomePage = () => {
+export default function Home() {
   return (
+
     <main className="min-h-screen bg-white">
       <Navbar />
       
@@ -93,4 +97,23 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+      <main className="flex-1">
+        <section className="container mx-auto px-4 py-16 text-center">
+          <h1 className="mb-4 text-4xl font-bold">
+            Welcome to Student Marketplace
+          </h1>
+          <p className="mb-8 text-lg text-muted-foreground">
+            A secure platform exclusively for university students to buy, sell, and exchange items and services.
+          </p>
+          <SignedOut>
+            <SignUpButton mode="modal">
+              <button className="rounded-md bg-primary px-6 py-3 text-lg font-medium text-primary-foreground hover:bg-primary/90">
+                Get Started
+              </button>
+            </SignUpButton>
+          </SignedOut>
+        </section>
+      </main>
+    </div>
+  );
+}
